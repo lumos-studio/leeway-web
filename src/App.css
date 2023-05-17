@@ -1,14 +1,12 @@
 .home {
-  width: 350px;
-  height: 700px;
+  width: 300px;
+  height: 600px;
   background-color: #ffff;
-  padding: 12px 12px 12px 12px;
+  padding: 12px;
   border-color: black;
   border-style: ridge;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
 }
 
 h1 {
@@ -30,22 +28,20 @@ h1 {
 }
 
 .next {
-  width: 350px;
-  height: 700px;
+  width: 300px;
+  height: 600px;
   background-color: #ffff;
   padding: 12px;
   border-color: black;
   border-style: ridge;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
 }
 
 .btn {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 30px;
+  position: absolute;
+  bottom: 30px;
+  right: 130px;
 }
 
 .tick {
@@ -58,7 +54,36 @@ h1 {
 }
 
 .tickbtn {
+  position: absolute;
+  bottom: 30px;
+  right: 130px;
+}
+
+input {
+  width: 290px;
+  height: 50px;
+  border-radius: 8px;
+  border-color: #EA6290;
+}
+
+.ip {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
-  padding-bottom: 30px;
+}
+
+.transaction-ip {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.transaction-ip input {
+  width: 290px;
+  height: 30px;
+  border-radius: 8px;
+  border-color: #EA6290;
+  font-family: 'rubik';
 }
