@@ -1,24 +1,41 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
 function Transaction() {
 
     const navigate = useNavigate();
+    const [km, setkm] = useState('');
+
+    const handleInputChange = (event) => {
+        setkm(event.target.value);
+    };
+    const handleTickClick = () => {
+        console.log('Data entered:', km);
+    };
+
     function handleClick() {
         navigate("/Home")
+
     }
+
     return (
         <div class="next">
             <h1>fuel expense</h1>
             <div class="transaction-ip">
-                <input type="text" placeholder="current km" />
-                <input type="text" placeholder="amount" />
-                <input type="text" placeholder="unit price" />
-                <input type="text" placeholder="litres" />
-                <input type="text" placeholder="date" />
+                <input type="number" placeholder="current km" value={km} onChange={handleInputChange} />
+
+                <input type="number" placeholder="amount" />
+                <input type="number" placeholder="unit price" />
+                <input type="number" placeholder="litres" />
+                <input type="date" placeholder="date" />
             </div>
-            <div className="tickbtn"><button class="tick" onClick={handleClick}><img src="savebutton.svg"></img></button></div>
+            <div className="tickbtn"><button class="tick" onClick={handleTickClick}><img src="savebutton.svg"></img></button></div>
         </div>
     )
 }
+
+
 export default Transaction
+
+
+
 
