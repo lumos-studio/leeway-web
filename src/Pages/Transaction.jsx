@@ -9,7 +9,12 @@ function Transaction() {
         setkm(event.target.value);
     };
     const handleTickClick = () => {
-        console.log('Data entered:', km);
+        if (km.trim() !== '') {
+            localStorage.setItem('km', km);
+            console.log('Data entered:', km);
+            setkm('');
+        }
+
     };
 
     function handleClick() {
