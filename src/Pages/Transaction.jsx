@@ -8,22 +8,21 @@ function Transaction() {
     const [unitPrice, setUnitPrice] = useState('');
     const [litres, setLitres] = useState('');
     const [date, setDate] = useState('');
+
     const handleInputChange = (event, setter) => {
         setter(event.target.value);
     };
     const handleTickClick = () => {
         if (km.trim() !== '' && amount.trim() !== '' && unitPrice.trim() !== '' && litres.trim() !== '' && date.trim() !== '') {
-            localStorage.setItem('km', km);
-            localStorage.setItem('amount', amount);
-            localStorage.setItem('unitPrice', unitPrice);
-            localStorage.setItem('litres', litres);
-            localStorage.setItem('date', date);
-            console.log('Data entered:', km, amount, unitPrice, litres, date);
-            setKm('');
-            setAmount('');
-            setUnitPrice('');
-            setLitres('');
-            setDate('');
+            const transactionData = {
+                km,
+                amount,
+                unitPrice,
+                litres,
+                date
+            };
+            localStorage.setItem('transaction', JSON.stringify(transactionData));
+            console.log('Data entered:', transactionData);
         }
     };
 
@@ -46,8 +45,6 @@ function Transaction() {
         </div>
     )
 }
-
-
 export default Transaction
 
 
