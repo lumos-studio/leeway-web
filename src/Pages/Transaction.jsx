@@ -21,8 +21,17 @@ function Transaction() {
                 litres,
                 date
             };
-            localStorage.setItem('transaction', JSON.stringify(transactionData));
+            // localStorage.setItem('transaction', JSON.stringify(transactionData));
+            // console.log('Data entered:', transactionData);
+            let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+            transactions.push(transactionData);
+            localStorage.setItem('transactions', JSON.stringify(transactions));
             console.log('Data entered:', transactionData);
+            setKm('');
+            setAmount('');
+            setUnitPrice('');
+            setLitres('');
+            setDate('');
         }
     };
 
@@ -46,6 +55,7 @@ function Transaction() {
     )
 }
 export default Transaction
+
 
 
 
