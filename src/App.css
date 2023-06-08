@@ -237,3 +237,13 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.back {
+  height: 12px;
+  width: 6px;
+  padding-right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #49484B;
+}
