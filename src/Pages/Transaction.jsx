@@ -21,8 +21,6 @@ function Transaction() {
                 litres,
                 date
             };
-            // localStorage.setItem('transaction', JSON.stringify(transactionData));
-            // console.log('Data entered:', transactionData);
             let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
             transactions.push(transactionData);
             localStorage.setItem('transactions', JSON.stringify(transactions));
@@ -34,15 +32,13 @@ function Transaction() {
             setDate('');
         }
     };
-
-    function handleClick() {
-        navigate("/Home")
-
-    }
+    const handleBackClick = () => {
+        navigate("/Home");
+    };
 
     return (
         <div class="next">
-            <h1>fuel expense</h1>
+            <h1><button className="back" onClick={handleBackClick}><img src="back.svg"></img></button>fuel expense</h1>
             <div class="transaction-ip">
                 <input type="number" placeholder="current km" value={km} onChange={(e) => handleInputChange(e, setKm)} />
                 <input type="number" placeholder="amount" value={amount} onChange={(e) => handleInputChange(e, setAmount)} />
