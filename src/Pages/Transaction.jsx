@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 function Transaction() {
 
     const navigate = useNavigate();
@@ -12,6 +12,23 @@ function Transaction() {
     const handleInputChange = (event, setter) => {
         setter(event.target.value);
     };
+
+
+    useEffect(() => {
+        if (amount.trim() !== '' && unitPrice.trim() !== '') {
+            const calculatedLitres = parseFloat(amount) / parseFloat(unitPrice);
+            setLitres(calculatedLitres.toString());
+        } else if (amount.trim() !== '' && litres.trim() !== '') {
+            const calculatedUnitPrice = parseFloat(amount) / parseFloat(litres);
+            setUnitPrice(calculatedUnitPrice.toString());
+        } else if (unitPrice.trim() !== '' && litres.trim() !== '') {
+            const calculatedAmount = parseFloat(unitPrice) * parseFloat(litres);
+            setAmount(calculatedAmount.toString());
+        }
+    }, [amount, unitPrice, litres]);
+
+
+
     const handleTickClick = () => {
         if (km.trim() !== '' && amount.trim() !== '' && unitPrice.trim() !== '' && litres.trim() !== '' && date.trim() !== '') {
             const transactionData = {
@@ -30,6 +47,7 @@ function Transaction() {
             setUnitPrice('');
             setLitres('');
             setDate('');
+            navigate("/Home");
         }
     };
     const handleBackClick = () => {
@@ -51,7 +69,6 @@ function Transaction() {
     )
 }
 export default Transaction
-
 
 
 
