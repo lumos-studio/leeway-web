@@ -12,21 +12,22 @@ function Transaction() {
     const handleInputChange = (event, setter) => {
         setter(event.target.value);
     };
-
-
-    useEffect(() => {
-        if (amount.trim() !== '' && unitPrice.trim() !== '') {
-            const calculatedLitres = parseFloat(amount) / parseFloat(unitPrice);
+    const calculateLitresOrUnitPrice = () => {
+        if (amount && unitPrice) {
+            const calculatedLitres = amount / unitPrice;
             setLitres(calculatedLitres.toString());
-        } else if (amount.trim() !== '' && litres.trim() !== '') {
-            const calculatedUnitPrice = parseFloat(amount) / parseFloat(litres);
+        } else if (amount && litres) {
+            const calculatedUnitPrice = amount / litres;
             setUnitPrice(calculatedUnitPrice.toString());
-        } else if (unitPrice.trim() !== '' && litres.trim() !== '') {
-            const calculatedAmount = parseFloat(unitPrice) * parseFloat(litres);
+        } else if (unitPrice && litres) {
+            const calculatedAmount = unitPrice * litres;
             setAmount(calculatedAmount.toString());
         }
-    }, [amount, unitPrice, litres]);
+    };
 
+    const handleSecondField = () => {
+        calculateLitresOrUnitPrice();
+    };
 
 
     const handleTickClick = () => {
@@ -47,7 +48,7 @@ function Transaction() {
             setUnitPrice('');
             setLitres('');
             setDate('');
-            navigate("/Home");
+            navigate("/home");
         }
     };
     const handleBackClick = () => {
@@ -59,9 +60,9 @@ function Transaction() {
             <h1><button className="back" onClick={handleBackClick}><img src="back.svg"></img></button>fuel expense</h1>
             <div class="transaction-ip">
                 <input type="number" placeholder="current km" value={km} onChange={(e) => handleInputChange(e, setKm)} />
-                <input type="number" placeholder="amount" value={amount} onChange={(e) => handleInputChange(e, setAmount)} />
-                <input type="number" placeholder="unit price" value={unitPrice} onChange={(e) => handleInputChange(e, setUnitPrice)} />
-                <input type="number" placeholder="litres" value={litres} onChange={(e) => handleInputChange(e, setLitres)} />
+                <input type="number" placeholder="amount" value={amount} onChange={(e) => handleInputChange(e, setAmount)} onBlur={handleSecondField} />
+                <input type="number" placeholder="unit price" value={unitPrice} onChange={(e) => handleInputChange(e, setUnitPrice)} onBlur={handleSecondField} />
+                <input type="number" placeholder="litres" value={litres} onChange={(e) => handleInputChange(e, setLitres)} onBlur={handleSecondField} />
                 <input type="date" placeholder="date" value={date} onChange={(e) => handleInputChange(e, setDate)} />
             </div>
             <div className="tickbtn"><button class="tick" onClick={handleTickClick}><img src="savebutton.svg"></img></button></div>
