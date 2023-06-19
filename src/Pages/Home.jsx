@@ -11,9 +11,13 @@ function Home() {
     function handleClick() {
         navigate("/transaction")
     }
+
+    function handleSettingsClick() {
+        navigate('/settings');
+    }
     return (
         <div class="home">
-            <h1>leeway</h1>
+            <h1>leeway<button onClick={handleSettingsClick}><img src="settings.svg"></img></button></h1>
             <div className="data">
                 {transactions.map((item, index) => (
                     <div key={index} className="list">
