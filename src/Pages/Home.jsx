@@ -14,12 +14,13 @@ function Home() {
     return (
         <div class="home">
             <h1>leeway</h1>
+            <p>Transactions</p>
             <div className="data">
                 {transactions.map((item, index) => (
                     <div key={index} className="list">
-                        <div className="list-item rs">{item.amount}</div>
-                        <div className="list-item rspl">{item.unitPrice}</div>
-                        <div className="list-item ltr">{item.litres}</div>
+                        <div className="list-item rs">{item.amount}₹</div>
+                        <div className="list-item rspl">{item.unitPrice}₹/l</div>
+                        <div className="list-item ltr">{item.litres}Ltr</div>
                         <div className="list-item dt">{item.date}</div>
                     </div>
                 ))}
@@ -32,7 +33,6 @@ function Home() {
     )
 }
 export default Home
-
 
 
 
