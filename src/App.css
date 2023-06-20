@@ -151,3 +151,10 @@ body {
   cursor: pointer;
   color: #49484B;
 }
+
+.home p {
+  font-family: 'rubik';
+  font-size: 14px;
+  font-weight: 400;
+  color: #999999;
+}
