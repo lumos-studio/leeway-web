@@ -5,10 +5,8 @@ function Settings() {
     const navigate = useNavigate();
 
     const handleBackClick = () => {
-        navigate("/Home");
+        navigate("/home");
     };
-
-
 
 
     return (
@@ -37,4 +35,11 @@ function Settings() {
 }
 
 export default Settings;
+
+
+
+
+
+
+
 

@@ -186,6 +186,8 @@ body {
   justify-content: space-between;
   padding-left: 15px;
   padding-right: 15px;
+  cursor: pointer;
+  background-color: #ffff;
 }
 
 .settings section {
