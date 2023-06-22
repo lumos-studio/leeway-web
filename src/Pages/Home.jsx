@@ -16,10 +16,13 @@ function Home() {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', options);
     }
+    function handleSettingsClick() {
+        navigate('/settings')
+    }
 
     return (
         <div class="home">
-            <h1>leeway</h1>
+            <h1>leeway<button onClick={handleSettingsClick}><img src="settings.svg"></img></button></h1>
             <p>Transactions</p>
             <div className="data">
                 {transactions.map((item, index) => (
