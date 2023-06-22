@@ -11,20 +11,23 @@ function Home() {
     function handleClick() {
         navigate("/transaction")
     }
-
-    function handleSettingsClick() {
-        navigate('/settings');
+    function formatDate(dateString) {
+        const options = { month: 'short', day: '2-digit', year: '2-digit' };
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', options);
     }
+
     return (
         <div class="home">
-            <h1>leeway<button onClick={handleSettingsClick}><img src="settings.svg"></img></button></h1>
+            <h1>leeway</h1>
+            <p>Transactions</p>
             <div className="data">
                 {transactions.map((item, index) => (
                     <div key={index} className="list">
-                        <div className="list-item rs">{item.amount}</div>
-                        <div className="list-item rspl">{item.unitPrice}</div>
-                        <div className="list-item ltr">{item.litres}</div>
-                        <div className="list-item dt">{item.date}</div>
+                        <div className="list-item rs">₹ {item.amount}</div>
+                        <div className="list-item rspl">{item.unitPrice} ₹/l</div>
+                        <div className="list-item ltr">{item.litres} Ltr</div>
+                        <div className="list-item dt">{formatDate(item.date)}</div>
                     </div>
                 ))}
 
@@ -36,7 +39,6 @@ function Home() {
     )
 }
 export default Home
-
 
 
 
