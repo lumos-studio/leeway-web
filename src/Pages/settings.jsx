@@ -8,6 +8,10 @@ function Settings() {
         navigate("/home");
     };
 
+    // const handleSignout = () => {
+    //     navigate("/authPage")
+    // }
+
 
     return (
         <div className="settings">
