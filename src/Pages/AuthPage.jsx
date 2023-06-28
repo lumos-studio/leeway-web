@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function AuthPage() {
-
+    const navigates = useNavigate();
     const handleAppleButtonClick = () => {
-        Navigate('/');
+        navigates('/');
     };
 
     const handleGoogleButtonClick = () => {
-        Navigate('/');
+        navigates('/');
     };
     return (
         <div className='auth'>
