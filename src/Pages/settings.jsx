@@ -8,6 +8,10 @@ function Settings() {
         navigate("/home");
     };
 
+    const handleSignout = () => {
+        navigate("/authpage")
+    }
+
 
     return (
         <div className="settings">
@@ -28,7 +32,7 @@ function Settings() {
             </section>
             <div className='t-c-signout'>
                 <Link to='#' className='terms-conditions'>terms & conditions</Link>
-                <button className='signout'>sign out</button>
+                <button className='signout' onClick={handleSignout}>sign out</button>
             </div>
         </div>
     );
