@@ -9,7 +9,7 @@ function Settings() {
     };
 
     const handleSignout = () => {
-        navigate("/authpage")
+        navigate("/")
     }
 
 

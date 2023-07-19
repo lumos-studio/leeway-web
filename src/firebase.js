@@ -2,12 +2,12 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBhzSlAhXv1CnCnyMVzTNQCIvyg6Jrr8aM",
-  authDomain: "leeway-staging-f2db3.firebaseapp.com",
-  projectId: "leeway-staging-f2db3",
-  storageBucket: "leeway-staging-f2db3.appspot.com",
-  messagingSenderId: "336011377473",
-  appId: "1:336011377473:web:90af19959b9b3e5b4c7fc0"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
   };
   
   firebase.initializeApp(firebaseConfig);
