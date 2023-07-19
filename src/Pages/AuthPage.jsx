@@ -8,7 +8,7 @@ import firebase from '../firebase';
 function AuthPage() {
     const navigates = useNavigate();
     const handleAppleButtonClick = () => {
-        navigates('/');
+        navigates('/home');
     };
 
     
@@ -19,7 +19,7 @@ function AuthPage() {
           .then((result) => {
             const user = result.user;
             console.log('User signed in:', user);
-            navigates('/');
+            navigates('/home');
           })
           .catch((error) => {
             console.error('Error signing in:', error);

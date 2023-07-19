@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/authpage" element={<AuthPage />} />
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/transaction" element={<Transaction />} />
         <Route path="/home" element={<Home />} />
         <Route path="/settings" element={<Settings />} />
