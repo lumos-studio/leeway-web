@@ -5,12 +5,21 @@ name: Deploy to Firebase Hosting on PR
 'on': pull_request
 jobs:
   build_and_preview:
+    name: Build & Deploy UI (Preview)
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: yarn && yarn build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Checkout Main
+        uses: actions/checkout@v3
+        
+      - name: Create env file
+        run: echo "${{ secrets.LUMOS_WEB_STAGING }}" > .env
+      
+      - name: Install deps & Build
+        run: yarn && yarn build
+      
+      - name: Deploy hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEEWAY_STAGING_F2DB3 }}'
