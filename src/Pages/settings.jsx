@@ -1,5 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom';
 import React from 'react';
+import {UserAuth} from '../context/Authcontext'
 
 function Settings() {
     const navigate = useNavigate();
@@ -8,8 +9,15 @@ function Settings() {
         navigate("/home");
     };
 
-    const handleSignout = () => {
-        navigate("/authpage")
+    const {logOut} = UserAuth();
+
+    const handleSignout = async () => {
+        try{
+            await logOut()
+            navigate('/');
+        } catch(error){
+            console.log(error)
+        }
     }
 
 

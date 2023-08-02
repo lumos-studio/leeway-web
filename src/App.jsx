@@ -5,18 +5,21 @@ import Home from "./Pages/Home";
 import Transaction from "./Pages/Transaction";
 import Settings from "./Pages/settings";
 import AuthPage from "./Pages/AuthPage";
+import { AuthContextProvider } from "./context/Authcontext";
+
 
 
 function App() {
   return (
     <div className="app">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/authpage" element={<AuthPage />} />
-        <Route path="/transaction" element={<Transaction />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/settings" element={<Settings />} />
-      </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<AuthPage />} />
+          <Route path="/transaction" element={ <Transaction /> } />
+          <Route path="/home" element={<Home />} />
+          <Route path="/settings" element={ <Settings /> } />
+        </Routes>
+      </AuthContextProvider>
     </div>
   );
 }
