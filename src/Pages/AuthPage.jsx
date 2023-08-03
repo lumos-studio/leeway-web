@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import {UserAuth} from '../context/AuthContext';
+
+
 
 function AuthPage() {
-    const navigates = useNavigate();
+    const navigate = useNavigate();
     const handleAppleButtonClick = () => {
-        navigates('/');
+        navigate('/home');
     };
 
-    const handleGoogleButtonClick = () => {
-        navigates('/');
+    const {googleSignIn,user} =UserAuth();
+
+    const handleGoogleSignIn = async () => {
+        try{
+            await googleSignIn();
+        }catch (error) {
+            console.log(error)
+        }
     };
+
+    useEffect(() => {
+        if (user !=null){
+            navigate('/home');
+        }
+    },[user]);
+  
+      
     return (
         <div className='auth'>
             <div className='authentication'>
@@ -21,7 +38,7 @@ function AuthPage() {
                     <p>continue with</p>
                     <div className='authentication-option'>
                         <button className='ios' onClick={handleAppleButtonClick}><img src='ios.svg'></img></button>
-                        <button className='google' onClick={handleGoogleButtonClick}><img src='google.svg'></img></button>
+                        <button className='google' onClick={handleGoogleSignIn}><img src='google.svg'></img></button>
                     </div>
                     <p className='terms'>by continuing, you agree to our&nbsp;<Link to='#' className='terms-condition'>terms & conditions</Link></p>
                 </section>
