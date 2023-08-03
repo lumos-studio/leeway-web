@@ -9,15 +9,16 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Protected from "./context/Protected";
 
 
+
 function App() {
   return (
     <div className="app">
       <AuthContextProvider>
         <Routes>
           <Route path="/" element={<AuthPage />} />
-          <Route path="/transaction" element={<Transaction />} />
+          <Route path="/transaction" element={<Protected><Transaction /></Protected>} />
           <Route path="/home" element={<Protected><Home /></Protected>} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/settings" element={<Protected><Settings /></Protected>} />
         </Routes>
       </AuthContextProvider>
       

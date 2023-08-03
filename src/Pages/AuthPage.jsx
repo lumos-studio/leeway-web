@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {UserAuth} from '../context/AuthContext';
-// import { auth } from '../firebase'; 
-// import firebase from '../firebase';
 
 
 
@@ -12,7 +10,7 @@ function AuthPage() {
         navigate('/home');
     };
 
-    const {googleSignIn} =UserAuth();
+    const {googleSignIn,user} =UserAuth();
 
     const handleGoogleSignIn = async () => {
         try{
@@ -27,19 +25,7 @@ function AuthPage() {
             navigate('/home');
         }
     },[user]);
-    // const signInWithGoogle = () => {
-    //     const provider = new firebase.auth.GoogleAuthProvider();
-      
-    //     auth.signInWithPopup(provider)
-    //       .then((result) => {
-    //         const user = result.user;
-    //         console.log('User signed in:', user);
-    //         navigates('/home');
-    //       })
-    //       .catch((error) => {
-    //         console.error('Error signing in:', error);
-    //       });
-    //   };
+  
       
     return (
         <div className='auth'>
