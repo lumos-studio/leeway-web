@@ -9,6 +9,7 @@ Before setting up the workspace, ensure that the following dependencies are inst
 
 - Node.js (v16 or higher)
 - Yarn (v1.22 or higher)
+- Storybook (v7.2 or higher)
 
 ## Installed Versions
 
@@ -16,6 +17,7 @@ Make sure you have the following versions of the required dependencies installed
 
 - Node.js v16.17.0.
 - Yarn: v1.22.19
+- Storybook v7.2.1
 
 ## Installation
 To get started with Leeway, follow these steps:
@@ -24,6 +26,7 @@ To get started with Leeway, follow these steps:
 - Navigate to the project directory: `cd leeway-web`
 - Install dependencies: `yarn install`
 - Start the development server: `yarn dev`
+- Start the storybook server: `yarn storybook`
 
 ## Contributing
 We welcome contributions from the community to enhance Leeway. If you encounter any issues, have ideas for new features, or want to contribute code improvements, feel free to open an issue or even better raise a PR.
