@@ -42,6 +42,9 @@ jobs:
       - name: Install deps & Build 
         run: yarn && yarn build
       
+      name: Build Storybook
+        run: yarn build-storybook
+
       - name: Deploy hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -49,10 +52,9 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LEEWAY_STAGING_F2DB3 }}'
           projectId: leeway-staging-f2db3
 
-      - name: Build Storybook
-        run: yarn build-storybook
+      - 
     
-      - name: Deploy Storybook to Firebase
-        run: |
-          npm install -g firebase-tools
-          firebase deploy --only hosting:storybook --token ${{ secrets.FIREBASE_TOKEN_STORYBOOK_2C67D }}
+      # - name: Deploy Storybook to Firebase
+      #   run: |
+      #     npm install -g firebase-tools
+      #     firebase deploy --only hosting:storybook --token ${{ secrets.FIREBASE_TOKEN_STORYBOOK_2C67D }}
