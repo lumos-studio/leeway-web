@@ -19,9 +19,9 @@ jobs:
       - name: Install deps & Build
         run: yarn && yarn build
       
-        name: Build Storybook
+      - name: Build Storybook
         run: yarn build-storybook
-        
+
       - name: Deploy hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
