@@ -32,5 +32,5 @@ To get started with Leeway, follow these steps:
 We welcome contributions from the community to enhance Leeway. If you encounter any issues, have ideas for new features, or want to contribute code improvements, feel free to open an issue or even better raise a PR.
 
 ## Project Links
--Visit our live website: [Website](https://leeway-staging-f2db3.web.app)
--Explore our Storybook documentation: [Storybook](https://storybook-2c67d.web.app)
+- Visit our live website: [Website](https://leeway-staging-f2db3.web.app)
+- Explore our Storybook documentation: [Storybook](https://storybook-2c67d.web.app)
